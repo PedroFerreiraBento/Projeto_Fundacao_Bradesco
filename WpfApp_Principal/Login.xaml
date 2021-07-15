@@ -1,0 +1,18 @@
+﻿<Window x:Name="Win_Login" x:Class="WpfApp_Principal.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_Principal"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="tb_email" HorizontalAlignment="Left" Height="42" Margin="209,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="91,90,0,0" VerticalAlignment="Top" FontSize="22"/>
+        <Label Content="Senha:" HorizontalAlignment="Left" Margin="92,137,0,0" VerticalAlignment="Top" FontSize="22"/>
+        <Button Content="Entrar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="165,240,0,0" FontSize="22" Height="43" Click="Enter"/>
+        <TextBox x:Name="tb_senha" HorizontalAlignment="Left" Height="42" Margin="209,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
+        <Button Content="Cadastrar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="310,240,0,0" FontSize="22" Height="43" Click="Cadastrar_Open"/>
+
+    </Grid>
+</Window>

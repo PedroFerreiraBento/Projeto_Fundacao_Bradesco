@@ -1,0 +1,23 @@
+﻿<Window x:Name="Win_Home" x:Class="WpfApp_Principal.Home"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_Principal"
+        mc:Ignorable="d"
+        Title="Home" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="255,209,0,0" VerticalAlignment="Top" Width="117" Height="35" Click="Button_Click"/>
+        <Menu HorizontalAlignment="Left" VerticalAlignment="Top" Width="793" VerticalContentAlignment="Center">
+            <MenuItem Header="_Home"></MenuItem>
+            <MenuItem Header="_Perfil" >
+                <MenuItem Header="_Editar"/>
+                <MenuItem Header="_Sair"/>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>

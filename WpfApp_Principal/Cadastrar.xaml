@@ -1,0 +1,22 @@
+﻿<Window x:Name="Win_Cadastrar" x:Class="WpfApp_Principal.Cadastrar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_Principal"
+        mc:Ignorable="d"
+        Title="Cadastrar" Height="450" Width="800">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Height="42" Margin="310,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
+        <Label Content="Nome:" HorizontalAlignment="Left" Margin="91,90,0,0" VerticalAlignment="Top" FontSize="22" Width="141"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="92,137,0,0" VerticalAlignment="Top" FontSize="22"/>
+        <Button Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="267,298,0,0" FontSize="22" Height="43" Click="Login_Open"/>
+        <TextBox HorizontalAlignment="Left" Height="42" Margin="310,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
+        <Button Content="Cadastrar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="92,298,0,0" FontSize="22" Height="43"/>
+        <Label Content="Senha:" HorizontalAlignment="Left" Margin="92,184,0,0" VerticalAlignment="Top" FontSize="22"/>
+        <TextBox HorizontalAlignment="Left" Height="42" Margin="310,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
+        <Label Content="Confirmar Senha:" HorizontalAlignment="Left" Margin="92,231,0,0" VerticalAlignment="Top" FontSize="22"/>
+        <TextBox HorizontalAlignment="Left" Height="42" Margin="310,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
+
+    </Grid>
+</Window>
