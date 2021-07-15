@@ -24,16 +24,11 @@ namespace WpfApp_Principal
         public Home()
         {
             InitializeComponent();
-            gridTest.Width = 0;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            if(gridTest.Width == 0)
-                gridTest.Width = 200;
-            else
-                gridTest.Width = 0;
+
                 
         }
     }
