@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,8 +29,21 @@ namespace WpfApp_Principal
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // abc
-                
+            // Set Conection
+            //SqlConnection con = new SqlConnection();
+            //con.ConnectionString = Properties.Settings.Default.Con_Str;
+
+            // SQL Query
+            //string queryInsert = "INSERT INTO tabela(nome) VALUES (@nome)";
+            //SqlCommand sql_Insert = new SqlCommand(queryInsert, con);
+            //sql_Insert.Parameters.Add(new SqlParameter("@nome", "Pedro"));
+
+            // Execute Query
+            //con.Open();
+            //sql_Insert.ExecuteNonQuery();
+            //MessageBox.Show("Insert realizado");
+            //con.Close();
+
         }
     }
 }

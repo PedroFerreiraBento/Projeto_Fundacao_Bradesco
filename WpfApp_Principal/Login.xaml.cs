@@ -24,7 +24,6 @@ namespace WpfApp_Principal
         public Login()
         {
             InitializeComponent();
-            MessageBox.Show("Ola");
         }
 
         private void Cadastrar_Open(object sender, RoutedEventArgs e)
