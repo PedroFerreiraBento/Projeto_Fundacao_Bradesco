@@ -30,8 +30,8 @@ namespace WpfApp_Principal
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // Set Conection
-            //SqlConnection con = new SqlConnection();
-            //con.ConnectionString = Properties.Settings.Default.Con_Str;
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = Properties.Settings.Default.Con_Str;
 
             // SQL Query
             //string queryInsert = "INSERT INTO tabela(nome) VALUES (@nome)";
@@ -39,10 +39,10 @@ namespace WpfApp_Principal
             //sql_Insert.Parameters.Add(new SqlParameter("@nome", "Pedro"));
 
             // Execute Query
-            //con.Open();
+            con.Open();
             //sql_Insert.ExecuteNonQuery();
-            //MessageBox.Show("Insert realizado");
-            //con.Close();
+            MessageBox.Show("Conexao Realizada");
+            con.Close();
 
         }
     }
