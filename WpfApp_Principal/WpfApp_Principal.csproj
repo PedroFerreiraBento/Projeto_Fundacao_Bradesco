@@ -98,6 +98,7 @@
     <Compile Include="Cadastrar.xaml.cs">
       <DependentUpon>Cadastrar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DBCon.cs" />
     <Compile Include="Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -156,16 +157,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="phis2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Banco_Local.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Banco_Local_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Banco_Local.mdf</DependentUpon>
-    </Content>
     <Content Include="Model_de_Dados.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model_de_Dados.Context.cs</LastGenOutput>

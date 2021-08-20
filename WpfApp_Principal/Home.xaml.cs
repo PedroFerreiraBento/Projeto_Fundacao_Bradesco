@@ -29,20 +29,6 @@ namespace WpfApp_Principal
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // Set Conection
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Con_Str;
-
-            // SQL Query
-            //string queryInsert = "INSERT INTO tabela(nome) VALUES (@nome)";
-            //SqlCommand sql_Insert = new SqlCommand(queryInsert, con);
-            //sql_Insert.Parameters.Add(new SqlParameter("@nome", "Pedro"));
-
-            // Execute Query
-            con.Open();
-            //sql_Insert.ExecuteNonQuery();
-            MessageBox.Show("Conexao Realizada");
-            con.Close();
 
         }
     }

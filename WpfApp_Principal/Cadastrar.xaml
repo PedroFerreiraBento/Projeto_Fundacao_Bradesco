@@ -7,16 +7,16 @@
         mc:Ignorable="d"
         Title="Cadastrar" Height="450" Width="800">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="42" Margin="310,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
         <Label Content="Nome:" HorizontalAlignment="Left" Margin="91,90,0,0" VerticalAlignment="Top" FontSize="22" Width="141"/>
         <Label Content="Email:" HorizontalAlignment="Left" Margin="92,137,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <Button Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="267,298,0,0" FontSize="22" Height="43" Click="Login_Open"/>
-        <TextBox HorizontalAlignment="Left" Height="42" Margin="310,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
-        <Button Content="Cadastrar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="92,298,0,0" FontSize="22" Height="43"/>
         <Label Content="Senha:" HorizontalAlignment="Left" Margin="92,184,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <TextBox HorizontalAlignment="Left" Height="42" Margin="310,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
         <Label Content="Confirmar Senha:" HorizontalAlignment="Left" Margin="92,231,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <TextBox HorizontalAlignment="Left" Height="42" Margin="310,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
+        <TextBox x:Name="tb_nome" HorizontalAlignment="Left" Height="42" Margin="310,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
+        <TextBox x:Name="tb_email" HorizontalAlignment="Left" Height="42" Margin="310,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
+        <PasswordBox x:Name="tb_senha" HorizontalAlignment="Left" Margin="310,184,0,0" VerticalAlignment="Top" Height="42" Width="241"/>
+        <PasswordBox x:Name="tb_senha_confirmar" HorizontalAlignment="Left" Margin="310,231,0,0" VerticalAlignment="Top" Height="42" Width="241"/>
+        <Button x:Name="btn_cadastrar" Content="Cadastrar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="92,298,0,0" FontSize="22" Height="43" Click="register"/>
+        <Button Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="267,298,0,0" FontSize="22" Height="43" Click="Login_Open"/>
 
     </Grid>
 </Window>
