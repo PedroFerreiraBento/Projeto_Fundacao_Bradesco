@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,18 +36,63 @@ namespace WpfApp_Principal
 
         private void Enter(object sender, RoutedEventArgs e)
         {
-            if (tb_email.Text == "admin" && tb_senha.Text == "admin")
+            if (validar_login())
             {
-                Home page_home = new Home();
+                DBCon con = new DBCon();
 
-                Application.Current.Properties["x"] = "xxxx";
-                
+                if (con.InitializeDB())
+                {
+                    DataTable table = con.ExecuteSelect("Login", new string[] { "COUNT(Email) as qtd" },
+                        "WHERE Email = '" + tb_email.Text.Trim() + "'" +
+                        "AND Senha = '" + tb_senha.Password.Trim() + "'");
 
-                page_home.Show();
-                this.Close();
+                    if (table.Rows[0]["qtd"].ToString() == "1")
+                    {
+                        Home goHome = new Home();
+                        goHome.Show();
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login ou Senha Invalidos.");
+                    }
+                }
             }
+            else
+            {
+                if (tb_email.Text == "admin" && tb_senha.Password == "admin")
+                {
+                    Home goHome = new Home();
+                    goHome.Show();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Login ou Senha Invalidos.");
+                }
+            }
+
+
         }
 
+        private bool validar_login()
+        {
+            bool verify_email = tb_email.Text.Trim(' ').Length != 0 ? true : false;
+            bool verify_senha = tb_senha.Password.Trim(' ').Length != 0 ? true : false;
+
+            if (!verify_email)
+            {
+                MessageBox.Show("O campo \"Email\" é obrigatório!");
+                return false;
+            }
+            else if (!verify_senha)
+            {
+                MessageBox.Show("O campo \"Senha\" é obrigatório!");
+                return false;
+            }
+
+            return true;
+        }
 
     }
 }

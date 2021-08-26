@@ -53,8 +53,33 @@ namespace WpfApp_Principal
             }
         }
 
-        // SQL Query
+        public DataTable ExecuteSelect(string table, string[] parameters, string condition)
+        {
+            try
+            {
+                // Montar a query
+                string selectQuery = "SELECT ";
+                for (int i = 0; i < parameters.Length; i++)
+                    selectQuery += parameters[i] + " ";
+                selectQuery += "FROM " + table + " " + condition;
+                //MessageBox.Show(selectQuery);
+                
+                // Preparar o comando
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = new SqlCommand(selectQuery, this.conexao);
+                
+                // Recebimento de valores
+                DataTable dt = new DataTable();
+                dt.Clear();
+                adapter.Fill(dt);
 
-        // Execute Query
+                return dt;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message.ToString());
+                return new DataTable();
+            }
+        }
     }
 }
