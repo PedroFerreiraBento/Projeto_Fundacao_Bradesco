@@ -1,9 +1,10 @@
-﻿<Window x:Name="Win_Home" x:Class="WpfApp_Principal.Home"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp_Principal"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="Win_Home" x:Class="WpfApp_Principal.Home"
         mc:Ignorable="d"
         Title="Home" Height="450" Width="800">
     <Grid>
@@ -11,13 +12,14 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Label HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="255,209,0,0" VerticalAlignment="Top" Width="117" Height="35" Click="Button_Click"/>
-        <Menu HorizontalAlignment="Left" VerticalAlignment="Top" Width="793" VerticalContentAlignment="Center">
-            <MenuItem Header="_Home"></MenuItem>
+        <Button x:Name="Btn_minhasFinancas" Content="Minhas Financas" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Width="157" Height="121" Click="Button_Click" Background="#ffffff" Foreground="#14213d" BorderThickness="4"/>
+        <Menu HorizontalAlignment="Left" VerticalAlignment="Top" Width="793" VerticalContentAlignment="Center" Background ="#FFFF5722">
+            <MenuItem Header="_Home"/>
             <MenuItem Header="_Perfil" >
                 <MenuItem Header="_Editar"/>
                 <MenuItem Header="_Sair"/>
             </MenuItem>
         </Menu>
+        <materialDesign:PopupBox Content="PopupBox" HorizontalAlignment="Left" Margin="749,53,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

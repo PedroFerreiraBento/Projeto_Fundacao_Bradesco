@@ -3,20 +3,28 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp_Principal"
+        xmlns:local="clr-namespace:WpfApp_Principal" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Cadastrar" Height="450" Width="800">
     <Grid>
-        <Label Content="Nome:" HorizontalAlignment="Left" Margin="91,90,0,0" VerticalAlignment="Top" FontSize="22" Width="141"/>
-        <Label Content="Email:" HorizontalAlignment="Left" Margin="92,137,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <Label Content="Senha:" HorizontalAlignment="Left" Margin="92,184,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <Label Content="Confirmar Senha:" HorizontalAlignment="Left" Margin="92,231,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <TextBox x:Name="tb_nome" HorizontalAlignment="Left" Height="42" Margin="310,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
-        <TextBox x:Name="tb_email" HorizontalAlignment="Left" Height="42" Margin="310,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
-        <PasswordBox x:Name="tb_senha" HorizontalAlignment="Left" Margin="310,184,0,0" VerticalAlignment="Top" Height="42" Width="241"/>
-        <PasswordBox x:Name="tb_senha_confirmar" HorizontalAlignment="Left" Margin="310,231,0,0" VerticalAlignment="Top" Height="42" Width="241"/>
-        <Button x:Name="btn_cadastrar" Content="Cadastrar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="92,298,0,0" FontSize="22" Height="43" Click="register"/>
-        <Button Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="267,298,0,0" FontSize="22" Height="43" Click="Login_Open"/>
+
+        <Image HorizontalAlignment="Left" Height="421" Margin="0,0,0,-0.333" VerticalAlignment="Top" Width="748" Source="imageFundo2.jpg" IsEnabled="False"/>
+        <Rectangle Fill="#ffff" HorizontalAlignment="Left" Height="421" Margin="70,0,0,-0.333" VerticalAlignment="Top" Width="504" Opacity="0.6"/>
+
+        <Label Content="Nome:" HorizontalAlignment="Left" Margin="91,71.333,0,0" VerticalAlignment="Top" FontSize="20" Width="141"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="91,118,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Senha:" HorizontalAlignment="Left" Margin="91,165,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Confirmar Senha:" HorizontalAlignment="Left" Margin="91,212,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="tb_nome" HorizontalAlignment="Left" Height="42" Margin="310,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
+        <TextBox x:Name="tb_email" HorizontalAlignment="Left" Height="42" Margin="310,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
+        <PasswordBox x:Name="tb_senha" HorizontalAlignment="Left" Margin="310,158,0,0" VerticalAlignment="Top" Height="42" Width="241"/>
+        <PasswordBox x:Name="tb_senha_confirmar" HorizontalAlignment="Left" Margin="310,205,0,0" VerticalAlignment="Top" Height="42" Width="241"/>
+        <Button x:Name="btn_cadastrar" Content="Cadastrar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="266,294,0,0" FontSize="22" Height="43" Click="register" Foreground="White"/>
+        <Button Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="411,294,0,0" FontSize="22" Height="43" Click="Login_Open" Foreground="White"/>
+        <Image HorizontalAlignment="Left" Height="64" VerticalAlignment="Top" Width="70" Source="imageLogo.png" RenderTransformOrigin="0.533,0.831"/>
+        <materialDesign:PackIcon Kind="UserAdd" HorizontalAlignment="Left" Margin="411,14,0,0" VerticalAlignment="Top" Height="50" Width="50" RenderTransformOrigin="2.143,0.543"/>
+        <materialDesign:PackIcon Kind="Tools" HorizontalAlignment="Left" Margin="759,377,0,0" VerticalAlignment="Top" Height="34" Width="24" Grid.Row="1"/>
+        <Rectangle Fill="#ffff" HorizontalAlignment="Left" Height="421" Margin="70,0,0,-0.333" VerticalAlignment="Top" Width="9"/>
 
     </Grid>
 </Window>
