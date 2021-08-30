@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfApp_Principal.AddRmSaldo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_Principal"
+        mc:Ignorable="d"
+        Title="AddRmSaldo" Height="268.171" Width="378.443">
+    <Grid Height="420" Margin="0,0,-0.4,0" VerticalAlignment="Top">
+        <Label Content="Saldo:&#xD;&#xA;" HorizontalAlignment="Left" Margin="28,49,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0" Height="35" Width="74"/>
+        <TextBox x:Name="lb_saldo" HorizontalAlignment="Left" Height="42" Margin="107,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="22"/>
+        <DatePicker x:Name="lb_data" HorizontalAlignment="Left" Margin="107,101,0,0" VerticalAlignment="Top" RenderTransformOrigin="-9.973,-1.119" Width="241" Height="46"/>
+        <Label Content="Data:" HorizontalAlignment="Left" Margin="28,112,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0" Height="35" Width="74"/>
+        <Button x:Name="add_saldo" Content="Adicionar" HorizontalAlignment="Left" Margin="107,180,0,0" VerticalAlignment="Top" Width="109" Click="add_saldo_Click"/>
+        <Button x:Name="rm_saldo" Content="Remover" HorizontalAlignment="Left" Margin="239,180,0,0" VerticalAlignment="Top" Width="109" Click="rm_saldo_Click"/>
+
+    </Grid>
+</Window>

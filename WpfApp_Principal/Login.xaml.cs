@@ -36,7 +36,7 @@ namespace WpfApp_Principal
 
         private void Enter(object sender, RoutedEventArgs e)
         {
-            if (validar_login())
+            if (validar_login() && false)
             {
                 DBCon con = new DBCon();
 

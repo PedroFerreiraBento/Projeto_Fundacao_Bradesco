@@ -27,9 +27,11 @@ namespace WpfApp_Principal
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Btn_minhasFinancas_Click(object sender, RoutedEventArgs e)
         {
-
+            Financias goFinancias = new Financias();
+            goFinancias.Show();
+            Close();
         }
     }
 }
