@@ -27,7 +27,7 @@ namespace WpfApp_Principal.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\PedroHenriqueFerreir" +
-            "\\Downloads\\Projeto\\Banco_Local.mdf;Integrated Security=True;Connect Timeout=30")]
+            "\\Downloads\\teste\\Banco_Local.mdf;Integrated Security=True;Connect Timeout=30")]
         public string Con_Str {
             get {
                 return ((string)(this["Con_Str"]));
