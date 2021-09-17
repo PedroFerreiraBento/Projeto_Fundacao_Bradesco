@@ -23,13 +23,7 @@ namespace WpfApp_Principal
         public Financias()
         {
             InitializeComponent();
-            DataTable lgUser = (DataTable)App.Current.Properties["logged_user"];
-
-            float meta_definida = float.Parse(lgUser.Rows[0]["Meta"].ToString());
-            float total_dinheiro = float.Parse(lgUser.Rows[0]["Saldo"].ToString());
-
-            lb_saldo.Content = total_dinheiro;
-            lb_meta.Content = meta_definida - total_dinheiro;
+            updateValues();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -49,6 +43,22 @@ namespace WpfApp_Principal
         {
             AddRmSaldo openAddRmSaldo = new AddRmSaldo();
             openAddRmSaldo.Show();
+        }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            updateValues();
+        }
+
+        public void updateValues()
+        {
+            DataTable lgUser = (DataTable)App.Current.Properties["logged_user"];
+
+            float meta_definida = float.Parse(lgUser.Rows[0]["Meta"].ToString());
+            float total_dinheiro = float.Parse(lgUser.Rows[0]["Saldo"].ToString());
+
+            lb_saldo.Content = total_dinheiro;
+            lb_meta.Content = meta_definida - total_dinheiro;
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp_Principal"
         mc:Ignorable="d"
-        Title="Financias" Height="450" Width="800">
+        Title="Financias" Height="450" Width="800" Activated="Window_Activated">
     <Grid>
         <Menu HorizontalAlignment="Left" VerticalAlignment="Top" Width="793" VerticalContentAlignment="Center" Background ="#FFFF5722">
             <MenuItem Header="_Home" Click="MenuItem_Click"/>
