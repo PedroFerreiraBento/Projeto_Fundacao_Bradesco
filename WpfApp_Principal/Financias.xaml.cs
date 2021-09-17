@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,12 +23,12 @@ namespace WpfApp_Principal
         public Financias()
         {
             InitializeComponent();
+            DataTable lgUser = (DataTable)App.Current.Properties["logged_user"];
 
-            float meta_definida = 1200;
-            float total_dinheiro = 420;
+            float meta_definida = float.Parse(lgUser.Rows[0]["Meta"].ToString());
+            float total_dinheiro = float.Parse(lgUser.Rows[0]["Saldo"].ToString());
 
             lb_saldo.Content = total_dinheiro;
-
             lb_meta.Content = meta_definida - total_dinheiro;
         }
 

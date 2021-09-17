@@ -27,7 +27,7 @@ namespace WpfApp_Principal
         {
             InitializeComponent();
             DataTable lgUser = (DataTable)App.Current.Properties["logged_user"];
-            MessageBox.Show(lgUser.Rows[0]["Saldo"].ToString());
+
         }
 
         private void Btn_minhasFinancas_Click(object sender, RoutedEventArgs e)

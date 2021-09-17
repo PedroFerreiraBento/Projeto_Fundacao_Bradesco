@@ -80,5 +80,17 @@ namespace WpfApp_Principal
                 return new DataTable();
             }
         }
+
+        public DataTable updateUserData() {
+            var dadosAtuais = (DataTable)App.Current.Properties["logged_user"];
+            var userData = dadosAtuais.Rows[0];
+
+            App.Current.Properties["logged_user"] = this.ExecuteSelect("Login, Usuario", null,
+                            "WHERE Email = '" + userData["Email"] + "'" +
+                            " AND Login.Id = Usuario.Login_FK");
+
+            dadosAtuais = (DataTable)App.Current.Properties["logged_user"];
+            return dadosAtuais;
+        }
     }
 }

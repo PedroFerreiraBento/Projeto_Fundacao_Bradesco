@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,18 @@ namespace WpfApp_Principal
 
             try
             {
-                float.Parse(lb_meta.Text);
+                DBCon con = new DBCon();
+
+                if (con.InitializeDB())
+                {
+                    DataTable lgUser = (DataTable)App.Current.Properties["logged_user"];
+
+                    string[] parametros = new string[] { "@id_user", "@newMeta" };
+                    string[] valores = new string[] { lgUser.Rows[0]["Id"].ToString(), lb_meta.Text };
+
+                    con.ExecuteProcedure("update_meta", parametros, valores);
+                    con.updateUserData();
+                }
 
             }
             catch
