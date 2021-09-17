@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,8 @@ namespace WpfApp_Principal
         public Home()
         {
             InitializeComponent();
+            DataTable lgUser = (DataTable)App.Current.Properties["logged_user"];
+            MessageBox.Show(lgUser.Rows[0]["Saldo"].ToString());
         }
 
         private void Btn_minhasFinancas_Click(object sender, RoutedEventArgs e)

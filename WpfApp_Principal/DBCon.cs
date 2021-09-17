@@ -53,15 +53,14 @@ namespace WpfApp_Principal
             }
         }
 
-        public DataTable ExecuteSelect(string table, string[] parameters, string condition)
+        public DataTable ExecuteSelect(string table, string[] parameters = null, string condition = "")
         {
             try
             {
                 // Montar a query
                 string selectQuery = "SELECT ";
-                for (int i = 0; i < parameters.Length; i++)
-                    selectQuery += parameters[i] + " ";
-                selectQuery += "FROM " + table + " " + condition;
+                selectQuery += parameters != null ? string.Join(", ", parameters) : "* ";
+                selectQuery += " FROM " + table + " " + condition;
                 //MessageBox.Show(selectQuery);
                 
                 // Preparar o comando

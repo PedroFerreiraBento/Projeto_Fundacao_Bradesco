@@ -46,8 +46,12 @@ namespace WpfApp_Principal
                         "WHERE Email = '" + tb_email.Text.Trim() + "'" +
                         "AND Senha = '" + tb_senha.Password.Trim() + "'");
 
-                    if (table.Rows[0]["qtd"].ToString() == "1")
+                    if (table.Rows[0]["qtd"].ToString() != "0")
                     {
+                        App.Current.Properties["logged_user"] = con.ExecuteSelect("Login, Usuario", null,
+                        "WHERE Email = '" + tb_email.Text.Trim() + "'" +
+                        " AND Login.Id = Usuario.Login_FK");
+
                         Home goHome = new Home();
                         goHome.Show();
                         Close();
