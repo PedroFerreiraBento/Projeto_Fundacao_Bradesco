@@ -21,5 +21,11 @@
             </MenuItem>
         </Menu>
         <materialDesign:PopupBox Content="PopupBox" HorizontalAlignment="Left" Margin="749,53,0,0" VerticalAlignment="Top"/>
+        <Rectangle Fill="#E0E0E0" HorizontalAlignment="Left" Height="323" Stroke="#ECECEC" VerticalAlignment="Top" Width="226" Margin="557,88,0,0" RadiusX="2" StrokeThickness="3" RadiusY="2"/>
+        <Rectangle Fill="#fff" HorizontalAlignment="Left" Height="272" Stroke="#ECECEC" VerticalAlignment="Top" Width="195" Margin="573,122,0,0" RadiusX="2" StrokeThickness="3" RadiusY="2"/>
+        <TextBox HorizontalAlignment="Left" Height="34" TextWrapping="Wrap" Text="Detalhes" VerticalAlignment="Top" Width="120" Margin="612,88,0,0" TextDecorations="{x:Null}" FontSize="14" FontWeight="Bold" BorderThickness="0" TextAlignment="Center"/>
+        <TextBox x:Name="lb_saldoTotal" HorizontalAlignment="Left" Height="65" Margin="640,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" FontSize="22"/>
+        <materialDesign:PackIcon Kind="CurrencyBrl" HorizontalAlignment="Left" Margin="598,171,0,0" VerticalAlignment="Top" Height="23" Width="23"/>
+
     </Grid>
 </Window>

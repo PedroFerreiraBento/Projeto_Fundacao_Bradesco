@@ -7,9 +7,11 @@
         mc:Ignorable="d"
         Title="DefinirMeta" Height="213.318" Width="343.905">
     <Grid>
+        <Rectangle Fill="#E0E0E0" HorizontalAlignment="Left" Height="82" Stroke="#ECECEC" VerticalAlignment="Top" Width="317" Margin="10,25,0,0" RadiusX="2" StrokeThickness="3" RadiusY="2"/>
+
         <Label HorizontalAlignment="Left" Margin="25,43,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0" Height="35" Width="115" Content="Nova Meta:"/>
-        <TextBox x:Name="lb_meta" HorizontalAlignment="Left" Height="42" Margin="140,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="22"/>
-        <Button x:Name="definir_meta" Content="Definir" HorizontalAlignment="Left" Margin="107,121,0,0" VerticalAlignment="Top" Width="109" Click="definir_meta_Click"/>
+        <TextBox x:Name="lb_meta" HorizontalAlignment="Left" Height="42" Margin="140,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontSize="22"/>
+        <Button x:Name="definir_meta" Content="Definir" HorizontalAlignment="Left" Margin="107,121,0,0" VerticalAlignment="Top" Width="109" Click="definir_meta_Click" Foreground="White"/>
 
     </Grid>
 </Window>
