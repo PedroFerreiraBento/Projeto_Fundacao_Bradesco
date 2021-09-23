@@ -60,5 +60,59 @@ namespace WpfApp_Principal
             this.Close();
         }
 
+        private void Salvar(object sender, RoutedEventArgs e)
+        {
+            if (checkUpdateFields())
+            {
+                DBCon con = new DBCon();
+
+                if (con.InitializeDB())
+                {
+                    DataTable lgUser = (DataTable)App.Current.Properties["logged_user"];
+
+                    string[] parametros = new string[] { "@id_user", "@nome", "@saldo", "@meta" };
+                    string[] valores = new string[] { lgUser.Rows[0]["Id"].ToString(), tb_nome.Text, tb_saldo.Text, tb_meta.Text };
+
+                    con.ExecuteProcedure("update_perfil", parametros, valores);
+                    con.updateUserData();
+                }
+            }
+        }
+
+        private bool checkUpdateFields()
+        {
+            var check = false;
+            DataTable lgUser = (DataTable)App.Current.Properties["logged_user"];
+            if (tb_nome.Text != lgUser.Rows[0]["Nome"].ToString())
+            {
+                if (lgUser.Rows[0]["Nome"].ToString().Length > 0)
+                {
+                    check = true;
+                }
+                else
+                {
+                    MessageBox.Show("Campo nome não pode estar vazio.");
+                }
+            }
+            if (tb_nome.Text != lgUser.Rows[0]["Saldo"].ToString())
+            {
+                check = true;
+            }
+            if (tb_nome.Text != lgUser.Rows[0]["Meta"].ToString())
+            {
+                if (float.Parse(lgUser.Rows[0]["Meta"].ToString()) >= 0)
+                {
+                    check = true;
+                }
+                else
+                {
+                    check = false;
+                    MessageBox.Show("Campo meta não pode ser negativo.");
+                }
+            }
+
+
+            return check;
+        }
     }
 }
