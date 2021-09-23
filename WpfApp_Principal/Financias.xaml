@@ -8,10 +8,10 @@
         Title="Financias" Height="450" Width="800" Activated="Window_Activated">
     <Grid>
         <Menu HorizontalAlignment="Left" VerticalAlignment="Top" Width="793" VerticalContentAlignment="Center" Background ="#FFFF5722">
-            <MenuItem Header="_Home" Click="MenuItem_Click"/>
+            <MenuItem Header="_Home" Click="AbrirHome"/>
             <MenuItem Header="_Perfil" >
-                <MenuItem Header="_Editar"/>
-                <MenuItem Header="_Sair"/>
+                <MenuItem Header="_Editar" Click="AbrirPerfil"/>
+                <MenuItem Header="_Sair" Click="Sair"/>
             </MenuItem>
         </Menu>
         <Button x:Name="Btn_minhasFinancas" Content="Adicionar/Remover Saldo" HorizontalAlignment="Left" Margin="79,290,0,0" VerticalAlignment="Top" Width="281" Height="45" Click="Btn_minhasFinancas_Click" Background="#FFFF5722" Foreground="#fff" BorderThickness="4" RenderTransformOrigin="0.5,0.5" FontSize="16">

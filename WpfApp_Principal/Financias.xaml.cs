@@ -23,15 +23,9 @@ namespace WpfApp_Principal
         public Financias()
         {
             InitializeComponent();
-            updateValues();
+            updateFields();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            Home goHome = new Home();
-            goHome.Show();
-            Close();
-        }
 
         private void btn_definirMetaNova(object sender, RoutedEventArgs e)
         {
@@ -47,10 +41,10 @@ namespace WpfApp_Principal
 
         private void Window_Activated(object sender, EventArgs e)
         {
-            updateValues();
+            updateFields();
         }
 
-        public void updateValues()
+        public void updateFields()
         {
             DataTable lgUser = (DataTable)App.Current.Properties["logged_user"];
 
@@ -59,6 +53,28 @@ namespace WpfApp_Principal
 
             lb_saldo.Content = total_dinheiro;
             lb_meta.Content = meta_definida - total_dinheiro;
+        }
+
+        private void AbrirPerfil(object sender, RoutedEventArgs e)
+        {
+            Perfil p = new Perfil();
+            p.Show();
+            this.Close();
+        }
+
+        private void AbrirHome(object sender, RoutedEventArgs e)
+        {
+            Home h = new Home();
+            h.Show();
+            this.Close();
+        }
+        private void Sair(object sender, RoutedEventArgs e)
+        {
+            App.Current.Properties["logged_user"] = null;
+
+            Login l = new Login();
+            l.Show();
+            this.Close();
         }
     }
 }
