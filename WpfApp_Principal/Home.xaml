@@ -16,10 +16,10 @@
         <Label HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button x:Name="Btn_minhasFinancas" Content="Minhas Financas" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Width="157" Height="121" Click="Btn_minhasFinancas_Click" Background="#ffffff" Foreground="#14213d" BorderThickness="4"/>
         <Menu HorizontalAlignment="Left" VerticalAlignment="Top" Width="793" VerticalContentAlignment="Center" Background ="#FFFF5722">
-            <MenuItem Header="_Home"/>
+            <MenuItem Header="_Home" Click="AbrirHome"/>
             <MenuItem Header="_Perfil" >
-                <MenuItem Header="_Editar"/>
-                <MenuItem Header="_Sair"/>
+                <MenuItem Header="_Editar" Click="AbrirPerfil"/>
+                <MenuItem Header="_Sair" Click="Sair"/>
             </MenuItem>
         </Menu>
         <materialDesign:PopupBox Content="PopupBox" HorizontalAlignment="Left" Margin="749,53,0,0" VerticalAlignment="Top"/>
