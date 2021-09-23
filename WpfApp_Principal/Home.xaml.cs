@@ -61,14 +61,14 @@ namespace WpfApp_Principal
             this.Close();
         }
 
-    }
+
 
         //Grafico grf1_Geral - visao geral da conta logada
 
         public Func<ChartPoint, string> PointLabel { get; set; }
         public void PieChart()
         {
-            PointLabel = chartPoint => string.Format("{0}({1:P})", chartPoint.Y , chartPoint.Participation);
+            PointLabel = chartPoint => string.Format("{0}({1:P})", chartPoint.Y, chartPoint.Participation);
             DataContext = this;
         }
 
