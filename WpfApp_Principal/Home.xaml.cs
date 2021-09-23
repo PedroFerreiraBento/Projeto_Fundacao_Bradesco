@@ -14,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LiveCharts;
+using LiveCharts.Wpf;
+
 
 
 namespace WpfApp_Principal
@@ -27,7 +30,7 @@ namespace WpfApp_Principal
         {
             InitializeComponent();
             DataTable lgUser = (DataTable)App.Current.Properties["logged_user"];
-
+            this.PieChart();
         }
 
         private void Btn_minhasFinancas_Click(object sender, RoutedEventArgs e)
@@ -36,6 +39,24 @@ namespace WpfApp_Principal
             goFinancias.Show();
             Close();
         }
+
+        //Grafico grf1_Geral - visao geral da conta logada
+
+        public Func<ChartPoint, string> PointLabel { get; set; }
+        public void PieChart()
+        {
+            PointLabel = chartPoint => string.Format("{0}({1:P})", chartPoint.Y , chartPoint.Participation);
+            DataContext = this;
+        }
+
+        private void PieChart_DataClick(object sender, ChartPoint chartPoint)
+        {
+            var chart = (LiveCharts.Wpf.PieChart)chartPoint.ChartView;
+            foreach (PieSeries pieSeries in chart.Series)
+                pieSeries.PushOut = 0;
+            var seleccionarSeries = (PieSeries)chartPoint.SeriesView;
+            seleccionarSeries.PushOut = 8;
+        }
     }
 }
-//TESTE
+
