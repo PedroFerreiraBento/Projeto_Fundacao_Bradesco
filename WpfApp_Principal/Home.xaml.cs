@@ -80,6 +80,25 @@ namespace WpfApp_Principal
             var seleccionarSeries = (PieSeries)chartPoint.SeriesView;
             seleccionarSeries.PushOut = 8;
         }
+
+        private void Btn_agendaClick(object sender, RoutedEventArgs e)
+        {
+            Agenda agd = new Agenda();
+            agd.Show();
+            this.Close();
+        }
+
+        private void CartesianChart_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_investimentosClick(object sender, RoutedEventArgs e)
+        {
+            Investimentos invs = new Investimentos();
+            invs.Show();
+            this.Close();
+        }
     }
 }
 

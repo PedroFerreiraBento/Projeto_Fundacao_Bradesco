@@ -1,0 +1,17 @@
+﻿<Window x:Class="WpfApp_Principal.NovoInvestimento"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_Principal"
+        mc:Ignorable="d"
+        Title="NovoInvestimento" Height="208.919" Width="425.169">
+    <Grid Margin="0,0,0.4,3.6">
+        <Rectangle Fill="#E0E0E0" HorizontalAlignment="Left" Height="153" Stroke="#ECECEC" VerticalAlignment="Top" Width="398" Margin="10,10,0,0" RadiusX="2" StrokeThickness="3" RadiusY="2"/>
+        <Label Content="Valor investido:&#xA;" HorizontalAlignment="Right" Margin="0,30,246,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0" Height="35" Width="144"/>
+        <TextBox x:Name="lb_valorInvestido" HorizontalAlignment="Left" Height="42" Margin="167,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontSize="22"/>
+        <RadioButton Content="Taxa Selic" HorizontalAlignment="Left" Margin="28,76,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="add_investimento" Content="Adicionar" HorizontalAlignment="Left" Margin="167,112,0,0" VerticalAlignment="Top" Width="109" Click="add_investimento_Click" Foreground="White"/>
+
+    </Grid>
+</Window>

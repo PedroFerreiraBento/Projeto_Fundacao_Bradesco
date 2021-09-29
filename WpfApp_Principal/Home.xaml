@@ -1,4 +1,5 @@
 ﻿<Window
+    
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -30,7 +31,7 @@
         <TextBox HorizontalAlignment="Left" Height="34" TextWrapping="Wrap" Text="Visao Geral" VerticalAlignment="Top" Width="120" Margin="615,88,0,0" TextDecorations="{x:Null}" FontSize="14" FontWeight="Bold" BorderThickness="0" TextAlignment="Center"/>
         <TextBox x:Name="lb_saldoTotal" HorizontalAlignment="Left" Height="65" Margin="640,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" FontSize="22"/>
         <materialDesign:PackIcon Kind="CurrencyBrl" HorizontalAlignment="Left" Margin="598,171,0,0" VerticalAlignment="Top" Height="23" Width="23"/>
-        <lvc:CartesianChart Series="{Binding SeriesCollection}" Margin="598,226,36.333,40"/>
+        <lvc:CartesianChart Series="{Binding SeriesCollection}" Margin="598,226,36.333,40" Loaded="CartesianChart_Loaded"/>
         <lvc:PieChart x:Name="grf1_Geral" LegendLocation="Bottom" HorizontalAlignment="Left" Hoverable="False" Height="241" Margin="223,104,0,0" VerticalAlignment="Top" Width="329" DataClick="PieChart_DataClick">
             <lvc:PieChart.Series>
                 <lvc:PieSeries Title="custosFixos" Values="37" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
@@ -41,6 +42,7 @@
 
             </lvc:PieChart.Series>
         </lvc:PieChart>
+        <Button x:Name="Btn_investimentos" Content="Investimentos" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" Width="157" Height="121" Click="Btn_investimentosClick" Background="#ffffff" Foreground="#14213d" BorderThickness="4"/>
 
 
 
