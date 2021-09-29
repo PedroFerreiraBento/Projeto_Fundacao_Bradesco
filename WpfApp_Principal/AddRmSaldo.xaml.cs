@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,29 +45,45 @@ namespace WpfApp_Principal
 
             try
             {
-                float.Parse(lb_saldo.Text);
+                DBCon con = new DBCon();
+
+                if (con.InitializeDB())
+                {
+                    DataTable lgUser = (DataTable)App.Current.Properties["logged_user"];
+
+                    string[] parametros = new string[] { "@usuario", "@valor", "@tipo", "@dataParaInserir" };
+                    string[] valores = new string[] { 
+                        lgUser.Rows[0]["Id"].ToString(), 
+                        lb_saldo.Text, 
+                        Convert.ToInt32(Adicionar).ToString(),
+                        lb_data.Text
+                    };
+
+                    con.ExecuteProcedure("update_saldo", parametros, valores);
+                    con.updateUserData();
+                }
 
             }
             catch
             {
-                MessageBox.Show("O campo saldo só aceita números!");
+                MessageBox.Show("Somente números no campo meta!");
                 return;
             }
 
-            float salario = float.Parse(lb_saldo.Text);
-            string data = lb_data.Text;
+            //float salario = float.Parse(lb_saldo.Text);
+            //string data = lb_data.Text;
 
-            if (Adicionar)
-            {
-                //conexão com o banco
-                MessageBox.Show("Dinheiro adicionado!");
-            }
-            else
-            {
-                //conexão com o banco
-                MessageBox.Show("Dinheiro removido!");
+            //if (Adicionar)
+            //{
+            //    //conexão com o banco
+            //    MessageBox.Show("Dinheiro adicionado!");
+            //}
+            //else
+            //{
+            //    //conexão com o banco
+            //    MessageBox.Show("Dinheiro removido!");
 
-            }
+            //}
             Close();
         }
     }
