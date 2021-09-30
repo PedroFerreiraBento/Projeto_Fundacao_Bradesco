@@ -24,9 +24,9 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Rectangle Fill="#E0E0E0" HorizontalAlignment="Left" Height="91" Stroke="#ECECEC" VerticalAlignment="Top" Width="584" Margin="82,124,0,0" RadiusX="2" StrokeThickness="3" RadiusY="2"/>
+        <Rectangle Fill="#E0E0E0" HorizontalAlignment="Left" Height="139" Stroke="#ECECEC" VerticalAlignment="Top" Width="584" Margin="82,124,0,0" RadiusX="2" StrokeThickness="3" RadiusY="2"/>
         <Label Content="Saldo Atual:" HorizontalAlignment="Left" Margin="100,133,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0" Height="35" Width="125"/>
-        <Label Content="Valor até a meta:" HorizontalAlignment="Left" Margin="100,173,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0" Height="35" Width="166"/>
+        <Label Content="Meta:" HorizontalAlignment="Left" Margin="100,173,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0" Height="35" Width="166"/>
         <Button x:Name="btn_definirMeta" Content="Definir nova meta" HorizontalAlignment="Left" Margin="380,289,0,0" VerticalAlignment="Top" Width="281" Height="45" Click="btn_definirMetaNova" Background="#FFFF5722" Foreground="#fff" BorderThickness="4" RenderTransformOrigin="0.5,0.5" FontSize="16">
             <Button.RenderTransform>
                 <TransformGroup>
@@ -38,7 +38,9 @@
             </Button.RenderTransform>
         </Button>
         <Label x:Name="lb_saldo" Content="saldo" HorizontalAlignment="Left" Margin="230,133,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0" Height="35" Width="117" BorderBrush="Black"/>
-        <Label x:Name="lb_meta" Content="meta" HorizontalAlignment="Left" Margin="271,173,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0" Height="35" Width="117" BorderBrush="Black"/>
+        <Label x:Name="lb_metaAtual" Content="meta" HorizontalAlignment="Left" Margin="193,173,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0" Height="35" Width="117" BorderBrush="Black"/>
+        <Label Content="Valor até a meta:" HorizontalAlignment="Left" Margin="100,211,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0" Height="35" Width="166"/>
+        <Label x:Name="lb_meta" Content="meta" HorizontalAlignment="Left" Margin="271,211,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0" Height="35" Width="117" BorderBrush="Black"/>
 
     </Grid>
 </Window>

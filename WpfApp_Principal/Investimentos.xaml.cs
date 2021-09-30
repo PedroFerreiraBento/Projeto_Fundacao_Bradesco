@@ -51,10 +51,25 @@ namespace WpfApp_Principal
 
         }
 
+        private void AbrirPerfil(object sender, RoutedEventArgs e)
+        {
+            Perfil p = new Perfil();
+            p.Show();
+            this.Close();
+        }
+
         private void AbrirHome(object sender, RoutedEventArgs e)
         {
             Home h = new Home();
             h.Show();
+            this.Close();
+        }
+        private void Sair(object sender, RoutedEventArgs e)
+        {
+            App.Current.Properties["logged_user"] = null;
+
+            Login l = new Login();
+            l.Show();
             this.Close();
         }
     }

@@ -52,7 +52,8 @@ namespace WpfApp_Principal
             float total_dinheiro = float.Parse(lgUser.Rows[0]["Saldo"].ToString());
 
             lb_saldo.Content = total_dinheiro;
-            lb_meta.Content = meta_definida - total_dinheiro;
+            lb_metaAtual.Content = meta_definida;
+            lb_meta.Content = (meta_definida - total_dinheiro) >= 0 ? (meta_definida - total_dinheiro) : 0;
         }
 
         private void AbrirPerfil(object sender, RoutedEventArgs e)

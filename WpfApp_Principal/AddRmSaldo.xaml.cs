@@ -32,14 +32,22 @@ namespace WpfApp_Principal
 
         private void rm_saldo_Click(object sender, RoutedEventArgs e)
         {
-            adicionar_remover(sender, e, false);
+            if (cb_categoria.IsEnabled)
+            {
+                adicionar_remover(sender, e, false);
+            }
+            else
+            {
+                cb_categoria.IsEnabled = true;
+                cb_categoria.Focus();
+            }
         }
 
         private void adicionar_remover(object sender, RoutedEventArgs e, bool Adicionar)
         {
-            if (string.IsNullOrEmpty(lb_saldo.Text) || string.IsNullOrEmpty(lb_data.Text))
+            if (string.IsNullOrEmpty(lb_saldo.Text))
             {
-                MessageBox.Show("Campos vazios");
+                MessageBox.Show("Preencha o campo valor");
                 return;
             }
 
@@ -50,14 +58,54 @@ namespace WpfApp_Principal
                 if (con.InitializeDB())
                 {
                     DataTable lgUser = (DataTable)App.Current.Properties["logged_user"];
-
-                    string[] parametros = new string[] { "@usuario", "@valor", "@tipo", "@dataParaInserir" };
-                    string[] valores = new string[] { 
-                        lgUser.Rows[0]["Id"].ToString(), 
-                        lb_saldo.Text, 
-                        Convert.ToInt32(Adicionar).ToString(),
-                        lb_data.Text
-                    };
+                    string[] parametros, valores;
+                    if (string.IsNullOrEmpty(lb_data.Text))
+                    {
+                        if (Adicionar)
+                        {
+                            parametros = new string[] { "@usuario", "@valor", "@tipo" };
+                            valores = new string[] {
+                                lgUser.Rows[0]["Id"].ToString(),
+                                lb_saldo.Text,
+                                Convert.ToInt32(Adicionar).ToString()
+                            };
+                        }
+                        else
+                        {
+                            parametros = new string[] { "@usuario", "@valor", "@tipo", "@categoria" };
+                            valores = new string[] {
+                                lgUser.Rows[0]["Id"].ToString(),
+                                lb_saldo.Text,
+                                Convert.ToInt32(Adicionar).ToString(),
+                                (cb_categoria.SelectedItem as ListBoxItem).Content.ToString()
+                            };
+                        }
+                    }
+                    else
+                    {
+                        if (Adicionar)
+                        {
+                            parametros = new string[] { "@usuario", "@valor", "@tipo", "@dataParaInserir" };
+                            valores = new string[] {
+                                lgUser.Rows[0]["Id"].ToString(),
+                                lb_saldo.Text,
+                                Convert.ToInt32(Adicionar).ToString(),
+                                lb_data.Text
+                            };
+                        }
+                        else
+                        {
+                            parametros = new string[] { "@usuario", "@valor", "@tipo", "@dataParaInserir", "@categoria" };
+                            valores = new string[] {
+                                lgUser.Rows[0]["Id"].ToString(),
+                                lb_saldo.Text,
+                                Convert.ToInt32(Adicionar).ToString(),
+                                lb_data.Text,
+                                (cb_categoria.SelectedItem as ListBoxItem).Content.ToString()
+                            };
+                        }
+                    }
+                    
 
                     con.ExecuteProcedure("update_saldo", parametros, valores);
                     con.updateUserData();
@@ -66,25 +114,44 @@ namespace WpfApp_Principal
             }
             catch
             {
-                MessageBox.Show("Somente números no campo meta!");
+                MessageBox.Show("Ocorreu um erro inesperado, tente novamente!");
                 return;
             }
 
-            //float salario = float.Parse(lb_saldo.Text);
-            //string data = lb_data.Text;
-
-            //if (Adicionar)
-            //{
-            //    //conexão com o banco
-            //    MessageBox.Show("Dinheiro adicionado!");
-            //}
-            //else
-            //{
-            //    //conexão com o banco
-            //    MessageBox.Show("Dinheiro removido!");
-
-            //}
+            
+            if (Adicionar)
+            {
+                MessageBox.Show("O valor será adcionado na data informada!");
+            }
+            else
+            {
+                MessageBox.Show("O valor será retirado na data informada!");
+            }
             Close();
         }
+
+
+
+        private void cb_date_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string comboItem = (e.AddedItems[0] as ComboBoxItem).Tag as string;
+            if(comboItem == "2")
+            {
+                foreach (var cmbi in cb_date.Items.Cast<ComboBoxItem>().Where(cmbi => (string)cmbi.Tag == 1.ToString()))
+                    cmbi.IsSelected = true;
+                cb_date.Visibility = Visibility.Hidden;
+                gridDataSelect.Visibility = Visibility.Visible;
+            }
+        }
+
+
+        private void Label_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            cb_date.Visibility = Visibility.Visible;
+            gridDataSelect.Visibility = Visibility.Hidden;
+            lb_data.Text = "";
+
+        }
+
     }
 }

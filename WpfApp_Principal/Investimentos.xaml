@@ -14,7 +14,9 @@
         <Button x:Name="Btn_removerInvestimento" Content="Remover Investimento" HorizontalAlignment="Left" Margin="582,72,0,0" VerticalAlignment="Top" Width="202" Height="99" Click="Btn_removerInvestimentoClick" Background="#ffffff" Foreground="#14213d" BorderThickness="4"/>
         <Menu HorizontalAlignment="Left" VerticalAlignment="Top" Width="793" VerticalContentAlignment="Center" Background ="#FFFF5722">
             <MenuItem Header="_Home" Click="AbrirHome"/>
-            <MenuItem Header="_Perfil" >
+            <MenuItem Header="_Perfil">
+                <MenuItem Header="_Editar" Click="AbrirPerfil"/>
+                <MenuItem Header="_Sair" Click="Sair"/>
             </MenuItem>
         </Menu>
 
