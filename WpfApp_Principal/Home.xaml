@@ -29,16 +29,17 @@
         <Rectangle Fill="#fff" HorizontalAlignment="Left" Height="269" Stroke="#ECECEC" VerticalAlignment="Top" Width="329" Margin="223,88,0,0" RadiusX="2" StrokeThickness="3" RadiusY="2"/>
 
         <TextBox HorizontalAlignment="Left" Height="34" TextWrapping="Wrap" Text="Visao Geral" VerticalAlignment="Top" Width="120" Margin="615,88,0,0" TextDecorations="{x:Null}" FontSize="14" FontWeight="Bold" BorderThickness="0" TextAlignment="Center"/>
-        <TextBox x:Name="lb_saldoTotal" HorizontalAlignment="Left" Height="65" Margin="640,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" FontSize="22"/>
+        <TextBox x:Name="lb_saldoTotal" HorizontalAlignment="Left" Height="65" Margin="640,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" FontSize="22" IsEnabled="False" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <materialDesign:PackIcon Kind="CurrencyBrl" HorizontalAlignment="Left" Margin="598,171,0,0" VerticalAlignment="Top" Height="23" Width="23"/>
-        <lvc:CartesianChart Series="{Binding SeriesCollection}" Margin="598,226,36.333,40" Loaded="CartesianChart_Loaded"/>
+        <lvc:CartesianChart x:Name="graficoLinha" Series="{Binding SeriesCollection}" Margin="598,226,36.333,40" Loaded="CartesianChart_Loaded"/>
         <lvc:PieChart x:Name="grf1_Geral" LegendLocation="Bottom" HorizontalAlignment="Left" Hoverable="False" Height="241" Margin="223,104,0,0" VerticalAlignment="Top" Width="329" DataClick="PieChart_DataClick">
             <lvc:PieChart.Series>
-                <lvc:PieSeries Title="custosFixos" Values="37" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
-                <lvc:PieSeries Title="diversos" Values="13" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
-                <lvc:PieSeries Title="cartao/outros" Values="25" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
-                <lvc:PieSeries Title="casa" Values="10" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
-                <lvc:PieSeries Title="pessoal" Values="15" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries x:Name="graf_custosFixos" Title="custosFixos" Values="0" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries x:Name="graf_diversos" Title="diversos" Values="0" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries x:Name="graf_cartao" Title="cartao" Values="0" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries x:Name="graf_casa" Title="casa" Values="0" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries x:Name="graf_pessoal" Title="pessoal" Values="0" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries x:Name="graf_outros" Title="outros" Values="0" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
 
             </lvc:PieChart.Series>
         </lvc:PieChart>

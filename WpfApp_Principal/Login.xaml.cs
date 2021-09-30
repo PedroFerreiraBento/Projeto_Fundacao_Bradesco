@@ -50,6 +50,7 @@ namespace WpfApp_Principal
                     {
                         App.Current.Properties["logged_user"] = con.ExecuteSelect("Login, Usuario", null,
                             "WHERE Email = '" + tb_email.Text.Trim() + "'");
+                        con.updateUserData();
 
                         Home goHome = new Home();
                         goHome.Show();

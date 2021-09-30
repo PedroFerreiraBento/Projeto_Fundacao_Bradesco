@@ -30,7 +30,86 @@ namespace WpfApp_Principal
         {
             InitializeComponent();
             DataTable lgUser = (DataTable)App.Current.Properties["logged_user"];
+            lb_saldoTotal.Text = lgUser.Rows[0]["Saldo"].ToString();
+
             this.PieChart();
+            List<double> saldoValues = new List<double>();
+            List<double> gastosValues = new List<double>();
+
+            DBCon con = new DBCon();
+            if (con.InitializeDB())
+            {
+                // Grafico de linhas
+                DataTable table = con.ExecuteSelect("LogSaldo", new string[] { "Saldo" },
+                    "WHERE UsuarioFK = " + lgUser.Rows[0]["Id"].ToString());
+
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    saldoValues.Add(Convert.ToDouble(table.Rows[i]["Saldo"].ToString()));
+                }
+
+                // Grafico de Pizza
+                //select Categoria, sum(Valor) from Agenda GROUP BY Categoria
+                table = con.ExecuteSelect("Agenda", new string[] { "Categoria", "sum(Valor) as sm" },
+                    "WHERE UsuarioFK = " + lgUser.Rows[0]["Id"].ToString() +
+                    "GROUP BY Categoria");
+
+                foreach(DataRow i in table.Rows)
+                {
+
+                    if(i["Categoria"].ToString() == "Outros")
+                    {
+                        graf_outros.Values = new ChartValues<double> { Convert.ToDouble(i["sm"].ToString()) };
+                    }
+                    if (i["Categoria"].ToString() == "CustosFixos")
+                    {
+                        graf_custosFixos.Values = new ChartValues<double> { Convert.ToDouble(i["sm"].ToString()) };
+                    }
+                    if (i["Categoria"].ToString() == "Diversos")
+                    {
+                        graf_diversos.Values = new ChartValues<double> { Convert.ToDouble(i["sm"].ToString()) };
+                    }
+                    if (i["Categoria"].ToString() == "Casa")
+                    {
+                        graf_casa.Values = new ChartValues<double> { Convert.ToDouble(i["sm"].ToString()) };
+                    }
+                    if (i["Categoria"].ToString() == "Cartão")
+                    {
+                        graf_cartao.Values = new ChartValues<double> { Convert.ToDouble(i["sm"].ToString()) };
+                    }
+                    if (i["Categoria"].ToString() == "Pessoal")
+                    {
+                        graf_pessoal.Values = new ChartValues<double> { Convert.ToDouble(i["sm"].ToString()) };
+                    }
+                }
+
+                //for (int i = 0; i < table.Rows.Count; i++)
+                //{
+                //    saldoValues.Add(Convert.ToDouble(table.Rows[i]["Saldo"].ToString()));
+                //}
+            }
+
+            graficoLinha.AxisY.Clear();
+            graficoLinha.AxisX.Clear();
+
+            graficoLinha.AxisY.Add(
+            new Axis
+            {
+                MinValue = 0
+            });
+            graficoLinha.AxisX.Add(
+            new Axis
+            {
+                MinValue = 0
+            });
+            graficoLinha.Series = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Saldo",
+                    Values = new ChartValues<double>(saldoValues)
+                }
+            };
         }
 
         private void Btn_minhasFinancas_Click(object sender, RoutedEventArgs e)
