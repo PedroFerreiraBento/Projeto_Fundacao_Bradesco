@@ -34,12 +34,12 @@
         <lvc:CartesianChart x:Name="graficoLinha" Series="{Binding SeriesCollection}" Margin="598,226,36.333,40" Loaded="CartesianChart_Loaded"/>
         <lvc:PieChart x:Name="grf1_Geral" LegendLocation="Bottom" HorizontalAlignment="Left" Hoverable="False" Height="241" Margin="223,104,0,0" VerticalAlignment="Top" Width="329" DataClick="PieChart_DataClick">
             <lvc:PieChart.Series>
-                <lvc:PieSeries x:Name="graf_custosFixos" Title="custosFixos" Values="0" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
-                <lvc:PieSeries x:Name="graf_diversos" Title="diversos" Values="0" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
-                <lvc:PieSeries x:Name="graf_cartao" Title="cartao" Values="0" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
-                <lvc:PieSeries x:Name="graf_casa" Title="casa" Values="0" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
-                <lvc:PieSeries x:Name="graf_pessoal" Title="pessoal" Values="0" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
-                <lvc:PieSeries x:Name="graf_outros" Title="outros" Values="0" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries x:Name="graf_custosFixos" Title="custosFixos" Values="0" LabelPosition="OutsideSlice" DataLabels="True" LabelPoint="{Binding PointLabel}" Foreground="Black"/>
+                <lvc:PieSeries x:Name="graf_diversos" Title="diversos" Values="0" LabelPosition="OutsideSlice" DataLabels="True" LabelPoint="{Binding PointLabel}" Foreground="Black"/>
+                <lvc:PieSeries x:Name="graf_cartao" Title="cartao" Values="0" LabelPosition="OutsideSlice" DataLabels="True" LabelPoint="{Binding PointLabel}" Foreground="Black"/>
+                <lvc:PieSeries x:Name="graf_casa" Title="casa" Values="0" LabelPosition="OutsideSlice" DataLabels="True" LabelPoint="{Binding PointLabel}" Foreground="Black"/>
+                <lvc:PieSeries x:Name="graf_pessoal" Title="pessoal" Values="0" LabelPosition="OutsideSlice" DataLabels="True" LabelPoint="{Binding PointLabel}" Foreground="Black"/>
+                <lvc:PieSeries x:Name="graf_outros" Title="outros" Values="0" LabelPosition="OutsideSlice" DataLabels="True" LabelPoint="{Binding PointLabel}" Foreground="Black"/>
 
             </lvc:PieChart.Series>
         </lvc:PieChart>
