@@ -178,6 +178,8 @@ namespace WpfApp_Principal
             invs.Show();
             this.Close();
         }
+
+
     }
 }
 

@@ -19,6 +19,7 @@ namespace WpfApp_Principal
     /// </summary>
     public partial class NovoInvestimento : Window
     {
+        Boolean outraTaxa;
         public NovoInvestimento()
         {
             InitializeComponent();
@@ -33,8 +34,24 @@ namespace WpfApp_Principal
             }
 
             MessageBox.Show("Investimento Adicionado!");
+
+            //pseudo código
+            // adicionar_valorInvestido(lb_valorInvestido)
+            //adicionar_dataAtual(dataAtual);
+            //if(outraTaxa){
+            //  adicionar_taxa(outraTaxa/100)
+            //}else{
+            // adicionar_taxa(6,25/100)
+            //} 
             Close();
         }
-
+        private void outraTaxa_Checked(object sender, RoutedEventArgs e)
+        {
+            outraTaxa = true;
+        }
+        private void taxaSelic_Checked(object sender, RoutedEventArgs e)
+        {
+            outraTaxa = false;
+        }
     }
 }

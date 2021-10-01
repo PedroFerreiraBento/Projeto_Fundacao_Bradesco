@@ -230,6 +230,7 @@
     <Resource Include="imageLogo.png" />
     <Resource Include="imageFundo.jpg" />
     <Resource Include="imageFundo2.jpg" />
+    <Resource Include="Image1.png" />
     <Content Include="Model_de_Dados.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model_de_Dados.Context.cs</LastGenOutput>

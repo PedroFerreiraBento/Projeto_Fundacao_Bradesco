@@ -7,11 +7,17 @@
         mc:Ignorable="d"
         Title="NovoInvestimento" Height="208.919" Width="425.169">
     <Grid Margin="0,0,0.4,3.6">
-        <Rectangle Fill="#E0E0E0" HorizontalAlignment="Left" Height="153" Stroke="#ECECEC" VerticalAlignment="Top" Width="398" Margin="10,10,0,0" RadiusX="2" StrokeThickness="3" RadiusY="2"/>
-        <Label Content="Valor investido:&#xA;" HorizontalAlignment="Right" Margin="0,30,246,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0" Height="35" Width="144"/>
-        <TextBox x:Name="lb_valorInvestido" HorizontalAlignment="Left" Height="42" Margin="167,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontSize="22"/>
-        <RadioButton Content="Taxa Selic" HorizontalAlignment="Left" Margin="28,76,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="add_investimento" Content="Adicionar" HorizontalAlignment="Left" Margin="167,112,0,0" VerticalAlignment="Top" Width="109" Click="add_investimento_Click" Foreground="White"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="103*"/>
+            <ColumnDefinition Width="106*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="#E0E0E0" HorizontalAlignment="Left" Height="153" Stroke="#ECECEC" VerticalAlignment="Top" Width="398" Margin="10,10,0,0" RadiusX="2" StrokeThickness="3" RadiusY="2" Grid.ColumnSpan="2"/>
+        <Label Content="Valor investido:&#xA;" HorizontalAlignment="Right" Margin="0,30,34.4,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0" Height="35" Width="144"/>
+        <TextBox x:Name="lb_valorInvestido" HorizontalAlignment="Left" Height="42" Margin="167,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontSize="22" Grid.ColumnSpan="2"/>
+        <RadioButton Content="Taxa Selic" HorizontalAlignment="Left" Margin="28,76,0,0" VerticalAlignment="Top" Checked="taxaSelic_Checked"/>
+        <Button x:Name="add_investimento" Content="Adicionar" HorizontalAlignment="Left" Margin="167,112,0,0" VerticalAlignment="Top" Width="109" Click="add_investimento_Click" Foreground="White" Grid.ColumnSpan="2"/>
+        <RadioButton Content="Outra taxa" Margin="109,76,20.4,0" VerticalAlignment="Top" Checked="outraTaxa_Checked"/>
+        <TextBox x:Name="lb_outraTaxa" HorizontalAlignment="Left" Height="42" Margin="186,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" FontSize="22" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

@@ -26,14 +26,27 @@ namespace WpfApp_Principal
         public Investimentos()
         {
             InitializeComponent();
-            SeriesCollection = new SeriesCollection
+
+            string dataAtual = DateTime.Now.ToString("yyyy-M-d");
+            string[] dataAtual1 = dataAtual.Split('-');
+            double diaAtual = Convert.ToDouble(dataAtual1[2]);
+
+            //subtração diaAtual com o dia do investimento inserido
+            //lucroInvestimento = investimentoOriginal? * (taxa/((diferença de dias - 365) * -1))
+            //colocar a label lb_valorInvestido com o lucro investimento 
+            
+
+            double[] dias = { 5 /*lucroInvestimento*/, 4/*investimentoOriginal? * (taxa/((diferença de dias-1 - 365) * -1))*/, /*investimentoOriginal? * (taxa/((diferença de dias-2 - 365) * -1))*/ 3,
+                2 /*investimentoOriginal? * (taxa/((diferença de dias-3 - 365) * -1))*/, 1  /*investimentoOriginal? * (taxa/((diferença de dias-4 - 365) * -1))*/ };
+
+            graficoInvestimentos.Series = new SeriesCollection
             {
                 new LineSeries
                 {
-                    Values = new ChartValues<double> { 3, 5, 7, 4 }
+                    Values = new ChartValues<double> {dias[4], dias[3], dias[2], dias[1], dias[0]}
                 },
             };
-            DataContext = this;
+
         }
 
         private void Btn_novoInvestimentoClick(object sender, RoutedEventArgs e)

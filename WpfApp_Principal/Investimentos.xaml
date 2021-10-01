@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Investimentos" Height="450" Width="800">
     <Grid>
-        <lvc:CartesianChart Series="{Binding SeriesCollection}" Margin="10,200,9.6,10"/>
+        <lvc:CartesianChart x:Name="graficoInvestimentos" Series="{Binding SeriesCollection}" Margin="10,200,9.6,10"/>
 
         <Button x:Name="Btn_novoInvestimento" Content="Novo investimento" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="202" Height="99" Click="Btn_novoInvestimentoClick" Background="#ffffff" Foreground="#14213d" BorderThickness="4"/>
         <Button x:Name="Btn_removerInvestimento" Content="Remover Investimento" HorizontalAlignment="Left" Margin="582,72,0,0" VerticalAlignment="Top" Width="202" Height="99" Click="Btn_removerInvestimentoClick" Background="#ffffff" Foreground="#14213d" BorderThickness="4"/>
@@ -19,6 +19,8 @@
                 <MenuItem Header="_Sair" Click="Sair"/>
             </MenuItem>
         </Menu>
+        <Label Content="Valor investido:" HorizontalAlignment="Left" Margin="239,102,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0" Height="35" Width="147"/>
+        <Label x:Name="lb_valorInvestido" Content="valor_invs" HorizontalAlignment="Left" Margin="407,102,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0" Height="35" Width="117" BorderBrush="Black"/>
 
     </Grid>
 </Window>
