@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,15 +37,44 @@ namespace WpfApp_Principal
             MessageBox.Show("Investimento Adicionado!");
 
             //pseudo código
-            // adicionar_valorInvestido(lb_valorInvestido)
-            //adicionar_dataAtual(dataAtual);
-            //if(outraTaxa){
-            //  adicionar_taxa(outraTaxa/100)
-            //}else{
-            // adicionar_taxa(6,25/100)
-            //} 
-            Close();
+            try
+            {
+                DBCon con = new DBCon();
+
+                if (con.InitializeDB())
+                {
+                    DataTable lgUser = (DataTable)App.Current.Properties["logged_user"];
+                    string[] parametros, valores;
+
+                    parametros = new string[] { "@usuario", "@valor", "@aumentoAno" };
+                    string taxa;
+                    if (outraTaxa)
+                    {
+                        taxa = (double.Parse(lb_outraTaxa.Text) / 100).ToString();
+                    }
+                    else
+                    {
+                        taxa = (6.25 / 100).ToString();
+                    }
+                    
+                    valores = new string[] {
+                        lgUser.Rows[0]["Id"].ToString(),
+                        lb_valorInvestido.Text,
+                        taxa
+                    };
+                    con.ExecuteProcedure("insert_investimento", parametros, valores);
+                    con.updateUserData();
+
+                    Close();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Ocorreu um erro inesperado, tente novamente!");
+                return;
+            }
         }
+
         private void outraTaxa_Checked(object sender, RoutedEventArgs e)
         {
             outraTaxa = true;

@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace WpfApp_Principal
 {
@@ -31,21 +32,41 @@ namespace WpfApp_Principal
             string[] dataAtual1 = dataAtual.Split('-');
             double diaAtual = Convert.ToDouble(dataAtual1[2]);
 
-            //subtração diaAtual com o dia do investimento inserido
-            //lucroInvestimento = investimentoOriginal? * (taxa/((diferença de dias - 365) * -1))
-            //colocar a label lb_valorInvestido com o lucro investimento 
-            
-
-            double[] dias = { 5 /*lucroInvestimento*/, 4/*investimentoOriginal? * (taxa/((diferença de dias-1 - 365) * -1))*/, /*investimentoOriginal? * (taxa/((diferença de dias-2 - 365) * -1))*/ 3,
-                2 /*investimentoOriginal? * (taxa/((diferença de dias-3 - 365) * -1))*/, 1  /*investimentoOriginal? * (taxa/((diferença de dias-4 - 365) * -1))*/ };
-
-            graficoInvestimentos.Series = new SeriesCollection
+            DBCon con = new DBCon();
+            DataTable lgUser = (DataTable)App.Current.Properties["logged_user"];
+            double VI, AA = 0;
+            string DI = "";
+            if (con.InitializeDB())
             {
-                new LineSeries
+                DataTable table = con.ExecuteSelect("Investimento", new string[] { "ValorInvestido", "AumentoAno", "AnoInvestimento" },
+                    "WHERE UsuarioFK = " + lgUser.Rows[0]["Id"].ToString());
+                if(table.Rows.Count > 0)
                 {
-                    Values = new ChartValues<double> {dias[4], dias[3], dias[2], dias[1], dias[0]}
-                },
-            };
+                    VI = double.Parse(table.Rows[0]["ValorInvestido"].ToString());
+                    AA = double.Parse(table.Rows[0]["AumentoAno"].ToString());
+                    DI = table.Rows[0]["AumentoAno"].ToString();
+
+                    DI = DI.Split('-')[2];
+
+
+                    int DataSub = 5 - int.Parse(DI);
+                    double lucroInvestimento = VI * (AA / ((DataSub - 365) * -1));
+                    double[] dias = { lucroInvestimento, VI * (AA/((DataSub-1 - 365) * -1)), VI * (AA/((DataSub-1 - 365) * -3)),
+                VI * (AA/((DataSub-1 - 365) * -5)), VI * (AA/((DataSub-1 - 365) * - 10))};
+                    graficoInvestimentos.Series = new SeriesCollection
+                    {
+                        new LineSeries
+                        {
+                            Values = new ChartValues<double> {dias[4], dias[3], dias[2], dias[1], dias[0]}
+                        },
+                    };
+                    lb_valorInvestido.Content = lucroInvestimento;
+                }
+            }
+
+
+
+
 
         }
 
